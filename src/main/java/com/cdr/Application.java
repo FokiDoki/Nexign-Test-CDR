@@ -21,7 +21,7 @@ public class Application {
     public static void main(String[] args) throws IOException {
         
         File inputFile =  new File(DEFAULT_SOURCE_FILE_PATH);
-        File outputFile = new File(DEFAULT_REPORT_PATH);
+        String outputFilePathPattern = DEFAULT_REPORT_PATH;
         if (!inputFile.exists()){
             throw new FileNotFoundException("File " + DEFAULT_SOURCE_FILE_PATH + " does not exist");
         }
@@ -34,7 +34,7 @@ public class Application {
                         "Using default CDR file path: " + DEFAULT_SOURCE_FILE_PATH);
             }
             if (args.length == 2){
-                outputFile = new File(args[1]);
+                outputFilePathPattern = args[1];
             } else {
                 System.out.println("No output file specified. " +
                         "Using default report path: " + DEFAULT_REPORT_PATH);
@@ -49,8 +49,9 @@ public class Application {
         System.out.println("Parsed " + container.size() + " CDR reports");
         System.out.println("Unique phone numbers: " + container.getUniquePhoneNumbers().size());
         System.out.println("Generating report...");
-        CDRReportGenerator.toFile(container, outputFile);
-        System.out.println("Report saved to " + outputFile.getAbsolutePath());
+        CDRReportGenerator.toFile(container, outputFilePathPattern);
+        String storeDirectory = new File(outputFilePathPattern).getParent();
+        System.out.println("Report saved to " + storeDirectory);
 
     }
 }

@@ -28,12 +28,13 @@ public class CDRReportGenerator {
     /**
      * Writes CDRReportContainer to file
      * @param reportContainer - CDRReportContainer to write
-     * @param file - file to write
+     * @param filePathPattern - path of file
      * @throws IOException if can't write to file
      */
-    public static void toFile(CDRReportContainer reportContainer, File file) throws IOException {
-        StringToFileHelper stringToFileHelper = new StringToFileHelper(file);
+    public static void toFile(CDRReportContainer reportContainer, String filePathPattern) throws IOException {
         for (String phoneNumber : reportContainer.getUniquePhoneNumbers()) {
+            File file = new File(String.format(filePathPattern, phoneNumber));
+            StringToFileHelper stringToFileHelper = new StringToFileHelper(file);
             CDRReportContainerSingle containerForPhoneNumber = reportContainer.getAllCallsForPhoneNumber(phoneNumber);
             String Report = generateCDRReportForNumber(containerForPhoneNumber);
             stringToFileHelper.write(Report);

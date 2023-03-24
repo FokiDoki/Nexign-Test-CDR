@@ -49,7 +49,7 @@ public class CDRReportContainer {
      * @return CDRReportContainerSingle with all reports for specified phone number
      */
     public CDRReportContainerSingle getAllCallsForPhoneNumber(String phoneNumber) {
-        CDRReportContainerSingle container = new CDRReportContainerSingle(phoneNumber);
+        CDRReportContainerSingle container = new CDRReportContainerSingle();
         for (CDRReport report : reports) {
             if (report.getPhoneNumber().equals(phoneNumber)) {
                 container.add(report);

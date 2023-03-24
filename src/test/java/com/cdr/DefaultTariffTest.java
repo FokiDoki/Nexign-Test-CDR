@@ -14,7 +14,6 @@ public class DefaultTariffTest {
                 new Date(2000, 10, 10, 10, 30, 32), new DefaultTariff()));
 
         new DefaultTariff().calculateCallCostsFromCDRReportContainer(cdrReportContainer);
-        System.out.println(cdrReportContainer.getTotalCallsCost());
         if (cdrReportContainer.getTotalCallsCost()!=19*0.5) {
             throw new AssertionError(testName+"1 failed");
         } else {

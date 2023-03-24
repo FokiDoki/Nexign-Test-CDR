@@ -59,6 +59,14 @@ public class CDRReportContainer {
     }
 
     /**
+     * Returns size of container
+     * @return int size of container
+     */
+    public int size() {
+        return reports.size();
+    }
+
+    /**
      * Returns all reports
      * @return TreeSet<CDRReport> of all reports
      */

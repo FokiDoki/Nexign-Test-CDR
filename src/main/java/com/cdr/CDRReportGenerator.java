@@ -37,7 +37,6 @@ public class CDRReportGenerator {
             CDRReportContainerSingle containerForPhoneNumber = reportContainer.getAllCallsForPhoneNumber(phoneNumber);
             String Report = generateCDRReportForNumber(containerForPhoneNumber);
             stringToFileHelper.write(Report);
-            System.out.println(Report);
         }
     }
 

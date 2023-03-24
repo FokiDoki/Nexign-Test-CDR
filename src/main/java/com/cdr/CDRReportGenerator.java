@@ -24,6 +24,13 @@ public class CDRReportGenerator {
             "|                                           Total Cost: |     %.2f rubles\t|\n" +
             "-----------------------------------------------------------------------------\n";
 
+
+    /**
+     * Writes CDRReportContainer to file
+     * @param reportContainer - CDRReportContainer to write
+     * @param file - file to write
+     * @throws IOException if can't write to file
+     */
     public static void toFile(CDRReportContainer reportContainer, File file) throws IOException {
         StringToFileHelper stringToFileHelper = new StringToFileHelper(file);
         for (String phoneNumber : reportContainer.getUniquePhoneNumbers()) {
@@ -34,6 +41,11 @@ public class CDRReportGenerator {
         }
     }
 
+    /**
+     * Generates CDRReport for single phone number
+     * @param containerForPhoneNumber CDRReportContainerSingle object
+     * @return String formatted CDRReport
+     */
     public static String generateCDRReportForNumber(CDRReportContainerSingle containerForPhoneNumber) {
         StringBuilder builder = new StringBuilder();
         Tariff tariff = containerForPhoneNumber.getTariff();

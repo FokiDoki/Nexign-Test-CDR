@@ -17,7 +17,12 @@ public class StringToFileHelper {
     }
 
 
-
+    /**
+     * Writes string to file
+     * Creates parent directories if they don't exist
+     * @param content - string to write
+     * @throws IOException - if function can't write to file or create directory
+     */
     public void write(String content) throws IOException {
         if (!pathIsExists()){
             outputFile.getParentFile().mkdirs();

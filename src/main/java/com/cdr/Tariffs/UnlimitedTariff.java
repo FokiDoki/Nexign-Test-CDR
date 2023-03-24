@@ -18,6 +18,10 @@ public class UnlimitedTariff implements Tariff {
         return CODE;
     }
 
+    /**
+     * Tariff 06 - 100 per month, 1 per minute after 300 minutes
+     * @param cdrReportContainer
+     */
     @Override
     public void calculateCallCostsFromCDRReportContainer(CDRReportContainer cdrReportContainer) {
         int allCallsInContainerDuration = 0;
@@ -25,6 +29,7 @@ public class UnlimitedTariff implements Tariff {
             allCallsInContainerDuration = calculateCallCostFromCDRReport(cdrReport, allCallsInContainerDuration);
         }
     }
+
 
     private int calculateCallCostFromCDRReport(CDRReport cdrReport, int allCallsDuration){
         double CurrentCallCost = 0;

@@ -18,6 +18,10 @@ public class MinuteTariff implements Tariff {
         return CODE;
     }
 
+    /**
+     * Tariff 03 - 1.5 per minute
+     * @param cdrReportContainer
+     */
     @Override
     public void calculateCallCostsFromCDRReportContainer(CDRReportContainer cdrReportContainer) {
         for (CDRReport cdrReport : cdrReportContainer.getReports()) {

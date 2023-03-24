@@ -5,6 +5,11 @@ import com.cdr.Tariffs.MinuteTariff;
 import com.cdr.Tariffs.UnlimitedTariff;
 
 public class TariffFactory {
+    /**
+     * Get tariff by name
+     * @param tariffName - enum TariffName
+     * @return Tariff
+     */
     public static Tariff getTariff(TariffName tariffName){
         switch (tariffName){
             case DEFAULT:

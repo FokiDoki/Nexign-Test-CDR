@@ -24,6 +24,12 @@ public class DefaultTariff implements Tariff {
         }
     }
 
+    /**
+     * Tariff 11 - 0.5 per minute for first 100 minutes, minuteTariff after
+     * @param cdrReport
+     * @param totalOutgoingMinutes
+     * @return
+     */
     private int calculateCallCostFromCDRReport(CDRReport cdrReport, int totalOutgoingMinutes){
         double CurrentCallCost = 0;
         double CurrentCallDuration = cdrReport.getDurationMinutesRoundedDown();

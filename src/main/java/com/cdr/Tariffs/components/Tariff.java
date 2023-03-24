@@ -8,6 +8,10 @@ public interface Tariff {
 
     String getTariffCode();
 
+    /**
+     * Calculate call cost from CDRReport container and set it to each report
+     * @param cdrReportContainer
+     */
     void calculateCallCostsFromCDRReportContainer(CDRReportContainer cdrReportContainer);
 
 

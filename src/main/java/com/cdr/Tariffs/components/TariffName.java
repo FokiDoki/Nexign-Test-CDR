@@ -11,6 +11,11 @@ public enum TariffName {
         this.code = code;
     }
 
+    /**
+     * Get tariff name by code
+     * @param code - tariff code
+     * @return TariffName
+     */
     public static TariffName getByCode(String code){
         for (TariffName tariffName : TariffName.values()){
             if (tariffName.code.equals(code)){

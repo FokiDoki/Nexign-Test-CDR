@@ -25,6 +25,23 @@ public class CDRReportContainerSingle extends CDRReportContainer{
         return totalCost;
     }
 
+    public CDRReport getFirstReport(){
+        return reports.first();
+    }
+
+    @Override
+    public void add(CDRReport report) {
+        if (reports.isEmpty()){
+            reports.add(report);
+        } else {
+            if (reports.first().getPhoneNumber().equals(report.getPhoneNumber())){
+                reports.add(report);
+            } else {
+                throw new IllegalArgumentException("CDRReportContainerSingle can contain only one phone number");
+            }
+        }
+    }
+
 
     public Tariff getTariff(){
         return reports.first().getTariff();

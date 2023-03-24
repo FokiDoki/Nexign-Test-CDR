@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class CDRReportGenerator {
 
-    private static String header =
+    private static final String header =
             "Tariff index: %s\n" +
             "-----------------------------------------------------------------------------\n" +
             "Report for phone number %s\n" +
@@ -17,9 +17,9 @@ public class CDRReportGenerator {
             "-----------------------------------------------------------------------------\n" +
             "| Call Type |   Start Time        |     End Time        | Duration |  Cost  |\n"+
             "-----------------------------------------------------------------------------\n";
-    private static String row =
+    private static final String row =
             "|     %s    | %s | %s | %s |  %.2f\t|\n";
-    private static String footer =
+    private static final String footer =
             "-----------------------------------------------------------------------------\n" +
             "|                                           Total Cost: |     %.2f rubles\t|\n" +
             "-----------------------------------------------------------------------------\n";

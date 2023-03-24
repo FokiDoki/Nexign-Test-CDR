@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.FileWriter;
 
 public class StringToFileHelper {
-    private File outputFile;
+    private final File outputFile;
 
     public StringToFileHelper(File outputFile) {
         this.outputFile = outputFile;

@@ -50,7 +50,7 @@ public class Application {
         System.out.println("Unique phone numbers: " + container.getUniquePhoneNumbers().size());
         System.out.println("Generating report...");
         CDRReportGenerator.toFile(container, outputFilePathPattern);
-        String storeDirectory = new File(outputFilePathPattern).getParent();
+        String storeDirectory = new File(outputFilePathPattern).getParentFile().getAbsolutePath();
         System.out.println("Report saved to " + storeDirectory);
 
     }

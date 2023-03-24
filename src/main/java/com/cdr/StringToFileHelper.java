@@ -3,25 +3,26 @@ package com.cdr;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
+import java.io.FileWriter;
 
 public class StringToFileHelper {
-    private String outputFilePath;
+    private File outputFile;
 
-    public StringToFileHelper(String outputFilePath) {
-        this.outputFilePath = outputFilePath;
+    public StringToFileHelper(File outputFile) {
+        this.outputFile = outputFile;
     }
 
-    public void setOutputFilePath(String outputFilePath) {
-        this.outputFilePath = outputFilePath;
+    private Boolean pathIsExists(){
+        return outputFile.getParentFile().exists();
     }
 
-    private String getFilePathFromPath(){
-        return outputFilePath.substring(0, outputFilePath.lastIndexOf("\\"));
-    }
+
 
     public void write(String content) throws IOException {
-        new File(getFilePathFromPath()).mkdirs();
-        BufferedWriter writer = new BufferedWriter(new java.io.FileWriter(outputFilePath));
+        if (!pathIsExists()){
+            outputFile.getParentFile().mkdirs();
+        }
+        BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
         writer.write(content);
         writer.close();
     }

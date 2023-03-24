@@ -48,10 +48,10 @@ public class Application {
         CDRReportContainer container = CDRReportFromInputStream.parse(new FileInputStream(inputFile));
         System.out.println("Parsed " + container.size() + " CDR reports");
         System.out.println("Unique phone numbers: " + container.getUniquePhoneNumbers().size());
-        System.out.println("Generating report...");
+        System.out.println("Generating reports...");
         CDRReportGenerator.toFile(container, outputFilePathPattern);
         String storeDirectory = new File(outputFilePathPattern).getParentFile().getAbsolutePath();
-        System.out.println("Report saved to " + storeDirectory);
+        System.out.println("Reports saved to " + storeDirectory);
 
     }
 }
